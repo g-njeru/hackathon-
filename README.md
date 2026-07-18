@@ -75,6 +75,100 @@ docker-compose up -d           # Start everything
 
 ---
 
+## How to Use This Repo
+
+Three ways to use this repo depending on your goal:
+
+### Use as Template (recommended for new hackathons)
+
+Creates a clean copy with no commit history. Your project, your repo.
+
+1. Click **Use this template** at the top of the repo page
+2. Name your new repo
+3. Start fresh with the full structure and cheatsheets
+
+### Fork
+
+Keeps a connection to the original repo. Good if you want to contribute back or pull future updates.
+
+```bash
+# Fork via GitHub CLI
+gh repo fork g-njeru/hackathon --clone=false
+
+# Or fork + clone
+gh repo fork g-njeru/hackathon --clone=true
+cd hackathon
+
+# Pull updates from upstream
+git fetch upstream
+git merge upstream/main
+```
+
+### Clone (read-only)
+
+Just reading the cheatsheets? Clone and browse.
+
+```bash
+git clone https://github.com/g-njeru/hackathon.git
+cd hackathon
+```
+
+---
+
+## Customize for Your Stack
+
+This repo is built for React + FastAPI + PostgreSQL + Docker. Here's how to adapt it:
+
+### 1. Update the stack reference
+
+Edit `onboarding/STACK_CHEATSHEET.md` to match your tools:
+- Swap React for Vue/Svelte/Angular
+- Swap FastAPI for Django/Express/Go
+- Swap PostgreSQL for MySQL/MongoDB
+
+### 2. Update generator scripts
+
+Edit `scripts/generate-*.sh` to output your preferred stack:
+- Change `requirements.txt` dependencies
+- Swap Docker images
+- Update `package.json` dependencies
+
+### 3. Add your own cheatsheets
+
+Create a new `.md` file in the right directory and add a row to the Quick Nav table in this README. See [CONTRIBUTING.md](CONTRIBUTING.md) for the format.
+
+### 4. Update environment variables
+
+Edit `.env.example` (or create one) with your service keys:
+```bash
+DATABASE_URL=your-db-url
+REDIS_URL=your-redis-url
+SUPABASE_URL=your-supabase-url
+SUPABASE_KEY=your-supabase-key
+```
+
+### 5. Update docker-compose
+
+Edit `docker-compose.yml` to add/remove services for your stack.
+
+---
+
+## Navigating the Repo
+
+```
+New to the team?          → onboarding/
+Starting a hackathon?     → hackathon_playbook/
+Building frontend?        → frontend/
+Building backend?         → backend/
+Need a database?          → databases/
+Deploying?                → devops/
+Need monitoring?          → observability/
+Building with AI?         → ai/
+Need a script?            → scripts/
+```
+
+---
+
 ## Generate a Project
 
 Don't copy-paste from this repo — generate a fresh project:
