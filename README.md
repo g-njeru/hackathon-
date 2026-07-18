@@ -73,10 +73,50 @@ docker-compose up -d           # Start everything
 
 ---
 
+## Generate a Project
+
+Don't copy-paste from this repo — generate a fresh project:
+
+```bash
+# Backend only (FastAPI + PG + Redis)
+bash scripts/generate-backend.sh my-api
+
+# Frontend only (React/Vite + Tailwind)
+bash scripts/generate-frontend.sh my-web
+
+# Full stack (backend + frontend + DB)
+bash scripts/generate-fullstack.sh my-app
+
+# RAG pipeline (FastAPI + pgvector)
+bash scripts/generate-rag.sh my-rag
+
+# Observability stack (Grafana + Loki)
+bash scripts/generate-observability.sh my-monitoring
+
+# Just a database (PG + Redis)
+bash scripts/generate-db.sh my-db
+```
+
+## Utility Scripts
+
+```bash
+# Keep free-tier services alive (prevents sleep)
+bash scripts/keep-alive.sh https://my-app.fly.dev
+
+# Check all services are running
+bash scripts/status.sh
+
+# Clean up after the hackathon
+bash scripts/cleanup.sh
+```
+
+---
+
 ## Repository Structure
 
 ```
 hackathon/
+├── scripts/             # Generator + utility scripts
 ├── onboarding/          # Team onboarding guides
 ├── hackathon_playbook/  # Strategy, workflows, demo prep
 ├── frontend/            # React, Vite, React Native, Tailwind
