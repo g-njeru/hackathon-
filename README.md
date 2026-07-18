@@ -10,6 +10,8 @@ A cheatsheet-driven guide for shipping fast during hackathons. Built for teams u
 |---|---|
 | **Onboard a teammate** | [TEAM_ONBOARDING.md](onboarding/TEAM_ONBOARDING.md) |
 | **Know what's in the stack** | [STACK_CHEATSHEET.md](onboarding/STACK_CHEATSHEET.md) |
+| **Learn git basics** | [GIT_CHEATSHEET.md](onboarding/GIT_CHEATSHEET.md) |
+| **Learn linux basics** | [LINUX_CHEATSHEET.md](onboarding/LINUX_CHEATSHEET.md) |
 | **Set up the dev environment** | `bash onboarding/ONBOARD_QUICKSTART.sh` |
 | **Plan my hackathon time** | [TIME_MANAGEMENT.md](hackathon_playbook/TIME_MANAGEMENT.md) |
 | **Avoid common mistakes** | [COMMON_MISTAKES.md](hackathon_playbook/COMMON_MISTAKES.md) |
