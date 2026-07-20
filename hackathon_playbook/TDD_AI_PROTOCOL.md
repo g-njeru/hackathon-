@@ -127,3 +127,45 @@ Tests are tools, not obligations. If a test is no longer aligned with the curren
 | **Refactor** | "Refactor this for readability while keeping tests green" |
 | **Edge cases** | "Add test cases for [edge case] and update the implementation" |
 | **Bug fix** | "Write a failing test that reproduces [bug], then fix it" |
+
+---
+
+## Real-World Lessons from Building an MVP
+
+### What worked
+
+1. **Generator scripts first** — Created `generate-fullstack.sh` before writing any feature code. Saved 30+ minutes per new project.
+2. **Build-then-document cycle** — Built auth feature, then immediately wrote `JWT_AUTH_GUIDE.md`. Documenting while the context is fresh produces better cheatsheets.
+3. **Mock mode for frontend** — `VITE_USE_MOCK=true` lets frontend dev proceed without backend. Saved context switching overhead.
+4. **Incremental features** — JWT → protected routes → user-specific data → dashboard. Each step builds on the last, easy to debug.
+
+### What didn't work
+
+1. **Writing all code then testing** — Syntax errors pile up. Better to build one file, verify syntax, then move on.
+2. **Assuming generators work** — Always test the generated project. Ours needed a `jwt_secret` added to config.
+3. **Skipping the User model early** — Adding `user_id` to Document after the fact required updating every query. Design the schema with auth from the start.
+
+### Testing strategy that saved us
+
+```bash
+# Frontend: build check (catches import/syntax errors fast)
+npx vite build
+
+# Backend: syntax check (no DB needed)
+python3 -m py_compile app/main.py
+
+# Full integration test (when DB is available)
+docker-compose up -d && curl http://localhost:8000/health
+```
+
+### Minimum viable test suite for hackathon
+
+| Layer | What to test | Tool | Time to write |
+|-------|-------------|------|---------------|
+| Backend syntax | `py_compile` on all files | Python stdlib | 2 min |
+| Frontend build | `vite build` | Vite | 1 min |
+| Health endpoint | `curl /health` | Shell | 1 min |
+| Auth flow | Manual signup → login → protected route | Browser | 5 min |
+| E2E happy path | Playwright demo test | Playwright | 15 min |
+
+Total: ~25 min for a test suite that catches 90% of demo-breaking bugs.

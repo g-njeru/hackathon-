@@ -257,6 +257,60 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 
 ---
 
+## Dashboard Layout Patterns
+
+### Stat cards grid
+
+```jsx
+<div className="grid grid-cols-3 gap-4">
+  <div className="bg-white rounded-lg shadow p-6 text-center">
+    <div className="text-3xl font-bold text-blue-600">{stats.total}</div>
+    <div className="text-sm text-gray-500 mt-1">Total Items</div>
+  </div>
+  <div className="bg-white rounded-lg shadow p-6 text-center">
+    <div className="text-3xl font-bold text-green-600">{stats.active}</div>
+    <div className="text-sm text-gray-500 mt-1">Active</div>
+  </div>
+  <div className="bg-white rounded-lg shadow p-6 text-center">
+    <div className="text-3xl font-bold text-yellow-600">{stats.pending}</div>
+    <div className="text-sm text-gray-500 mt-1">Pending</div>
+  </div>
+</div>
+```
+
+### Header with nav and user info
+
+```jsx
+<header className="bg-white shadow-sm">
+  <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+    <h1 className="text-xl font-bold text-gray-900">Dashboard</h1>
+    <div className="flex items-center gap-4">
+      <a href="/dashboard" className="text-sm text-blue-600 hover:underline">Dashboard</a>
+      <span className="text-sm text-gray-600">{user.email}</span>
+      <button onClick={logout} className="text-sm text-red-600 hover:underline">Logout</button>
+    </div>
+  </div>
+</header>
+```
+
+### List with dividers
+
+```jsx
+<div className="bg-white rounded-lg shadow p-6">
+  <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Items</h2>
+  <div className="divide-y">
+    {items.map(item => (
+      <div key={item.id} className="py-3 flex justify-between items-center">
+        <span className="font-medium text-gray-800">{item.title}</span>
+        <span className="text-sm text-gray-400">{item.date}</span>
+      </div>
+    ))}
+  </div>
+</div>
+```
+
+---
+
 ## Common Gotchas
 
 | Issue | Fix |

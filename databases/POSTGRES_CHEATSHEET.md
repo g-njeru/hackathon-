@@ -126,6 +126,38 @@ SELECT AVG(score), SUM(score), MIN(score), MAX(score) FROM results;
 SELECT DISTINCT author FROM documents;
 ```
 
+### Dashboard aggregation (real-world)
+
+```sql
+-- Total count for a user
+SELECT COUNT(*) FROM documents WHERE user_id = $1;
+
+-- Count with conditions
+SELECT
+  COUNT(*) AS total,
+  COUNT(*) FILTER (WHERE content != '' AND content IS NOT NULL) AS with_content,
+  COUNT(*) FILTER (WHERE content = '' OR content IS NULL) AS empty
+FROM documents
+WHERE user_id = $1;
+
+-- Top 5 longest documents
+SELECT id, title, LENGTH(content) AS content_length
+FROM documents
+WHERE user_id = $1
+ORDER BY LENGTH(content) DESC
+LIMIT 5;
+
+-- Documents per day (last 7 days)
+SELECT
+  DATE(created_at) AS day,
+  COUNT(*) AS count
+FROM documents
+WHERE user_id = $1
+  AND created_at > NOW() - INTERVAL '7 days'
+GROUP BY DATE(created_at)
+ORDER BY day DESC;
+```
+
 ### Pagination
 
 ```sql
