@@ -20,6 +20,7 @@ A cheatsheet-driven guide for shipping fast during hackathons. Built for teams u
 | **Write API endpoints** | [API_DESIGN_PATTERNS.md](backend/API_DESIGN_PATTERNS.md) |
 | **Mock data for frontend** | [MOCK_DATA_PATTERNS.md](backend/MOCK_DATA_PATTERNS.md) |
 | **Use TDD with AI** | [TDD_AI_PROTOCOL.md](hackathon_playbook/TDD_AI_PROTOCOL.md) |
+| **Work with AI-generated code** | [AI_DEV_WORKFLOW.md](hackathon_playbook/AI_DEV_WORKFLOW.md) |
 | **Set up PostgreSQL** | [POSTGRES_CHEATSHEET.md](databases/POSTGRES_CHEATSHEET.md) |
 | **Use Redis** | [REDIS_CHEATSHEET.md](databases/REDIS_CHEATSHEET.md) |
 | **Set up Supabase** | [SUPABASE_QUICKSTART.md](databases/SUPABASE_QUICKSTART.md) |

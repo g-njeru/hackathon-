@@ -169,3 +169,10 @@ docker-compose up -d && curl http://localhost:8000/health
 | E2E happy path | Playwright demo test | Playwright | 15 min |
 
 Total: ~25 min for a test suite that catches 90% of demo-breaking bugs.
+
+---
+
+## See Also
+
+- [AI_DEV_WORKFLOW.md](AI_DEV_WORKFLOW.md) — Full development workflow with AI (spec → generate → review → ship)
+- [TEAM_WORKFLOWS.md](TEAM_WORKFLOWS.md) — Git workflow, task assignment, team coordination
