@@ -2,6 +2,8 @@
 
 FOSS monitoring with Loki, Grafana, Tempo, and Mimir.
 
+> **Looking for something lighter?** See [OpenObserve](OPENOBSERVE_GUIDE.md) — a single Rust binary that replaces the entire LGTM stack with unified logs, metrics, and traces. Lower resource footprint, SQL queries, 40x Parquet compression.
+
 ---
 
 ## What is the LGTM Stack?

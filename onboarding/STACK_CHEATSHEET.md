@@ -33,14 +33,30 @@ Quick reference for every tool in the stack. Each entry has a one-line explanati
 
 ---
 
-## Observability (FOSS LGTM Stack)
+## Observability
 
 | Tool | What it is | Why we use it |
 |---|---|---|
+| **OpenObserve** | Unified observability engine (logs, metrics, traces) | Single Rust binary, 40x Parquet compression, SQL queries — replaces full LGTM stack |
 | **Loki** | Log aggregation system (like ELK but lighter) | Index labels, not text — cheap and fast log search |
 | **Grafana** | Visualization and dashboarding platform | Connects to Loki, Tempo, Prometheus — single pane of glass |
 | **Tempo** | Distributed tracing backend | See where time is spent across service calls |
 | **Mimir** | Long-term metrics storage for Prometheus | Scalable metrics for dashboards and alerting |
+
+See [OPENOBSERVE_GUIDE.md](../observability/OPENOBSERVE_GUIDE.md) for OpenObserve setup. See [LGTM_STACK_GUIDE.md](../observability/LGTM_STACK_GUIDE.md) for the full Grafana/Loki stack.
+
+---
+
+## Security (FOSS)
+
+| Tool | What it is | Why we use it |
+|---|---|---|
+| **Wazuh** | Host SIEM/XDR — endpoint threat detection | File integrity monitoring, OS CVE scanning, active response |
+| **CrowdSec** | Automated intrusion blocking | Crowdsourced threat intel — auto-bans brute-force and bot IPs |
+| **Trivy** | Container & dependency vulnerability scanner | Scans Docker images, requirements.txt, package.json for CVEs |
+| **OWASP ZAP** | API & web app security scanner | Automated pen testing for auth flaws, SQLi, CORS, data leakage |
+
+See [FOSS_SECURITY_STACK.md](../security/FOSS_SECURITY_STACK.md) for setup and usage.
 
 ---
 

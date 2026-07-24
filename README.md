@@ -33,8 +33,13 @@ A cheatsheet-driven guide for shipping fast during hackathons. Built for teams u
 | **Use Nginx** | [REVERSE_PROXY_NGINX.md](devops/REVERSE_PROXY_NGINX.md) |
 | **Build RAG cheaply** | [RAG_ON_A_BUDGET.md](ai/RAG_ON_A_BUDGET.md) |
 | **Choose a vector DB** | [VECTOR_DB_OPTIONS.md](ai/VECTOR_DB_OPTIONS.md) |
-| **Set up monitoring** | [LGTM_STACK_GUIDE.md](observability/LGTM_STACK_GUIDE.md) |
+| **Set up monitoring (LGTM)** | [LGTM_STACK_GUIDE.md](observability/LGTM_STACK_GUIDE.md) |
+| **Set up monitoring (OpenObserve)** | [OPENOBSERVE_GUIDE.md](observability/OPENOBSERVE_GUIDE.md) |
 | **Get a quick dashboard** | [QUICK_MONITORING_SETUP.md](observability/QUICK_MONITORING_SETUP.md) |
+| **Scan for vulnerabilities** | [FOSS_SECURITY_STACK.md](security/FOSS_SECURITY_STACK.md) |
+| **Prepare for production launch** | [PRODUCTION_CHECKLIST.md](production/PRODUCTION_CHECKLIST.md) |
+| **Set up a remote dev env** | [ZERO_GUI_PDE.md](devops/ZERO_GUI_PDE.md) |
+| **System design patterns** | [architecture/](architecture/) |
 
 ---
 
@@ -163,8 +168,11 @@ Building frontend?        → frontend/
 Building backend?         → backend/
 Need a database?          → databases/
 Deploying?                → devops/
-Need monitoring?          → observability/
+Setting up monitoring?    → observability/
+Securing your app?        → security/
+Going to production?      → production/
 Building with AI?         → ai/
+Need architecture docs?   → architecture/
 Need a script?            → scripts/
 ```
 
@@ -219,10 +227,14 @@ hackathon/
 ├── frontend/            # React, Vite, React Native, Tailwind
 ├── backend/             # FastAPI, API patterns, mock data
 ├── databases/           # PostgreSQL, Redis, Supabase
-├── devops/              # Docker, CI/CD, deployment, Nginx
-├── observability/       # LGTM stack, monitoring
+├── devops/              # Docker, CI/CD, deployment, Nginx, remote dev env
+├── observability/       # LGTM stack, OpenObserve, monitoring
+├── security/            # Wazuh, CrowdSec, Trivy, OWASP ZAP
+├── production/          # Launch checklists, compliance, payments
+├── architecture/        # System design patterns
 ├── ai/                  # RAG, vector databases
 ├── reference/           # PDFs and supplementary materials
+├── AGENTS.md            # AI context file
 ├── .gitignore
 ├── VERSION
 └── LICENSE
